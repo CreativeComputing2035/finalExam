@@ -1,5 +1,12 @@
 $(document).ready(function(){ //Run the following after the page is ready.
     "use strict";             //Tell jQuery to be strict about the syntax.
+    $("#hoverMe").hover(function() {
+                        $("#hoverMe").css("font-weight","bold");
+    });
+    $("#hoverMe").click(function() {
+        $("#hoverMe").text($("li:first").text());
+        $("li:first").text("Nephelim")
+    });
     $("#squareMakerButton").click(makeSquare);
 });
 //-------------------------------------------------------------------
@@ -8,7 +15,7 @@ $(document).ready(function(){ //Run the following after the page is ready.
 function makeSquare() {
     console.log("hit");
     $("#squareMaker").html("");
-    var numOfSquares = 5;
+    var numOfSquares = $("#squareMakerInput").val();
     console.log($("#squareMakerInput").val());
     for (var x=0 ; x < numOfSquares ; x++){
         $("#squareMaker").append("<div class=\"square\"></div>");
